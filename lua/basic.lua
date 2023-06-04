@@ -19,9 +19,9 @@ vim.wo.cursorline = false
 -- vim.wo.colorcolumn = "80"
 
 -- indent
-vim.o.tabstop = 4
-vim.bo.tabstop = 4
-vim.o.softtabstop = 4
+vim.o.tabstop = 2
+vim.bo.tabstop = 2
+vim.o.softtabstop = 2
 vim.o.shiftround = true
 
 vim.o.autoindent = true
