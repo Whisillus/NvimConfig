@@ -1,6 +1,7 @@
--- This file config the general and LSP-related keybindings
--- Other Keybindings/keymaps config in separated files
 
+-- ----------------------------------------------------
+-- General Config
+-- ----------------------------------------------------
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -60,7 +61,34 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 -- map("n", "/", "/\\v", { noremap = true, silent = false })
 -- map("v", "/", "/\\v", { noremap = true, silent = false })
 
--- ------------------LSP Keybinding-------------------------
+-- ----------------------------------------------------
+-- Windows split
+-- ----------------------------------------------------
+
+map("n", "<leader>sv", ":vsp<CR>", opt)
+map("n", "<leader>sh", ":sp<CR>", opt)
+
+-- close current win
+map("n", "<leader>sc", "<C-w>c", opt)
+-- close all other win
+map("n", "<leader>so", "<C-w>o", opt) -- close others
+
+-- move
+map("n", "<A-h>", "<C-w>h", opt)
+map("n", "<A-j>", "<C-w>j", opt)
+map("n", "<A-k>", "<C-w>k", opt)
+map("n", "<A-l>", "<C-w>l", opt)
+
+-- size control
+map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
+map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
+map("n", "<C-Down>", ":resize +2<CR>", opt)
+map("n", "<C-Up>", ":resize -2<CR>", opt)
+map("n", "<leader>s=", "<C-w>=", opt)
+
+-- ----------------------------------------------------
+-- LSP
+-- ----------------------------------------------------
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 
@@ -105,6 +133,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
-
--- ------------------other-------------------------
 

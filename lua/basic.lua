@@ -4,8 +4,8 @@ vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
 
 -- jkhl rolling offse-t
-vim.o.scrolloff = 8
-vim.o.sidescrolloff = 8
+vim.o.scrolloff = 4
+vim.o.sidescrolloff = 4
 
 -- line number and sign
 vim.wo.number = true
@@ -81,11 +81,11 @@ vim.o.splitright = true
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 
 --theme
-vim.o.termguicolors = false
-vim.opt.termguicolors = false
+vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
-vim.o.list = false
-vim.o.listchars = "space:·,tab:··"
+vim.o.list = true
+vim.o.listchars = "space:·,tab:>-"
 
 -- wildmenu
 vim.o.wildmenu = true

@@ -13,6 +13,19 @@ return require('packer').startup(function(use)
   use 'olimorris/onedarkpro.nvim'
   use 'tomasr/molokai'
 
+  -- bufferline
+  use {
+    'akinsho/bufferline.nvim', 
+    tag = "*",
+    requires = 'nvim-tree/nvim-web-devicons'
+  }
+
+  -- lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
   -- dependancies
   use 'nvim-lua/plenary.nvim'
 
@@ -25,13 +38,36 @@ return require('packer').startup(function(use)
   -- telescope file/line finder
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    -- or                            , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  -- cmp completion and snipping
+  use {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer', 
+    'hrsh7th/cmp-path',  
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
+
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
+  }
+
   -- lsp setup
   use {
     "williamboman/mason.nvim",
     "neovim/nvim-lspconfig",
+  }
+
+  -- nvim-tree file explorer
+  use {
+    "nvim-tree/nvim-tree.lua",
+    "nvim-tree/nvim-web-devicons"
+  }
+
+  -- git sign for change
+  use {
+    'lewis6991/gitsigns.nvim',
   }
 
 end)
