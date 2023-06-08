@@ -37,7 +37,11 @@ return require('packer').startup(function(use)
 
   -- treesitter syntax highlight
   use 'nvim-treesitter/nvim-treesitter'
-  
+  use {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+    requires = "nvim-treesitter/nvim-treesitter",
+  }
   -- telescope file/line finder
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
