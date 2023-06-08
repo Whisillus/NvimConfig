@@ -26,8 +26,11 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
-  -- dependancies
+  -- dependencies
   use 'nvim-lua/plenary.nvim'
+
+  -- comment
+  use 'numToStr/Comment.nvim'
 
   -- null-ls lint and format setup
   use 'jose-elias-alvarez/null-ls.nvim'
