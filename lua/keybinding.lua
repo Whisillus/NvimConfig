@@ -59,6 +59,7 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 
 -- custom
 map("n", "J", "", {})
+map("v", "J", "", {})
 map("n", "Z", "ZZ", {})
 
 -- ----------------------------------------------------
