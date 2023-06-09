@@ -1,5 +1,5 @@
 
-local lueline_setup = {
+local lualine_setup = {
   options = {
     icons_enabled = true,
     theme = 'auto',
@@ -22,7 +22,7 @@ local lueline_setup = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {{'datetime', style='default'}, 'encoding'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
