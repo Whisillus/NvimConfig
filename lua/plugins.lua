@@ -35,13 +35,15 @@ return require('packer').startup(function(use)
   -- null-ls lint and format setup
   use 'jose-elias-alvarez/null-ls.nvim'
 
-  -- treesitter syntax highlight
+  -- treesitter syntax plugin
   use 'nvim-treesitter/nvim-treesitter'
   use {
     "nvim-treesitter/nvim-treesitter-textobjects",
     after = "nvim-treesitter",
     requires = "nvim-treesitter/nvim-treesitter",
   }
+  use 'nvim-treesitter/nvim-treesitter-context'
+
   -- telescope file/line finder
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
