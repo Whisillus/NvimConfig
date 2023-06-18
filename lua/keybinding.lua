@@ -18,11 +18,11 @@ local opt = {
 -- local var
 local map = vim.api.nvim_set_keymap
 
--- swtich $ and g_
-map("v", "$", "g_", opt)
-map("v", "g_", "$", opt)
-map("n", "$", "g_", opt)
-map("n", "g_", "$", opt)
+-- modified H and L
+map("v", "L", "g_", opt)
+map("n", "L", "g_", opt)
+map("v", "H", "^", opt)
+map("n", "H", "^", opt)
 
 -- command line
 map("c", "<C-j>", "<C-n>", { noremap = false })
@@ -57,7 +57,7 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
--- custom
+-- For better Op
 map("n", "J", "", {})
 map("v", "J", "", {})
 map("n", "Z", "ZZ", {})
