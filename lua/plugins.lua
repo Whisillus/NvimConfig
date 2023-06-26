@@ -66,6 +66,12 @@ return require('packer').startup(function(use)
     'hrsh7th/vim-vsnip',
   }
 
+  -- hop for jumping
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+}
+
   -- lsp setup
   use {
     "williamboman/mason.nvim",
