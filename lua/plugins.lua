@@ -12,6 +12,11 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'olimorris/onedarkpro.nvim'
   use 'tomasr/molokai'
+  use 'dracula/vim'
+  use({
+  'glepnir/zephyr-nvim',
+  requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
+  })
 
   -- bufferline
   use {
