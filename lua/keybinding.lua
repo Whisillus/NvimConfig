@@ -49,6 +49,8 @@ map("v", "<F1>", "<ESC><F1>", {})
 map("v", "<F2>", "<ESC><F2>", {})
 map("v", "<F3>", "<ESC><F2>", {})
 map("v", "<F4>", "<ESC><F2>", {})
+-- F8 toggle term_mode
+-- F9 nvim tree
 
 -- fix :set wrap
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

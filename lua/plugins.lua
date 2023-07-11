@@ -75,7 +75,8 @@ return require('packer').startup(function(use)
   use {
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
-}
+  }
+  use {"akinsho/toggleterm.nvim", tag = '*'}
 
   -- lsp setup
   use {
