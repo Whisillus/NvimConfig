@@ -22,13 +22,18 @@ local cmp_keybind = {
 cmp.setup {
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      require('luasnip').lsp_expand(args.body)
     end,
+  },
+
+  window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
   },
 
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' },
+    { name = 'luasnip' },
   }, { { name = 'buffer' },
        { name = 'path' }
     }),
