@@ -31,7 +31,6 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
-  -- dependencies
   use 'nvim-lua/plenary.nvim'
 
   -- comment
@@ -84,6 +83,12 @@ return require('packer').startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
+
+  -- surround
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+  })
 
   -- nvim-tree file explorer
   use {
