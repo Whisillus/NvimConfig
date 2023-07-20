@@ -13,7 +13,7 @@ local cmp_keybind = {
     }),
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ['<CR>'] = cmp.mapping.confirm({
+    ['<C-s>'] = cmp.mapping.confirm({
       select = true ,
       behavior = cmp.ConfirmBehavior.Replace
     }),
