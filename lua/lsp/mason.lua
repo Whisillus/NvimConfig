@@ -1,6 +1,6 @@
 
-require("mason").setup()
+require("mason").setup({})
 require("mason-lspconfig").setup {
-    ensure_installed = {"clangd", "cmake", "pyright", "rome"},
+    ensure_installed = {"clangd", "cmake", "pyright", "rome", "texlab"},
 }
 
