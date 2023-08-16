@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- theme
+  use "rebelot/kanagawa.nvim"
   use 'folke/tokyonight.nvim'
   use 'olimorris/onedarkpro.nvim'
   use 'tomasr/molokai'
@@ -17,6 +18,7 @@ return require('packer').startup(function(use)
   'glepnir/zephyr-nvim',
   requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
   })
+  use { "ellisonleao/gruvbox.nvim" }
 
   -- bufferline
   use {
