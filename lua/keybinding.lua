@@ -90,6 +90,12 @@ map("n", "<C-Up>", ":resize -2<CR>", opt)
 map("n", "<leader>s=", "<C-w>=", opt)
 
 -- ----------------------------------------------------
+-- NeoFormat
+-- ----------------------------------------------------
+map("v", "<leader>f", "<cmd>Neoformat<CR>", { silent = true })
+map("n", "<leader>f", "<cmd>Neoformat<CR>", { silent = true })
+
+-- ----------------------------------------------------
 -- LSP
 -- ----------------------------------------------------
 -- Global mappings.
@@ -128,12 +134,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     -- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', '<leader>f', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
-    vim.keymap.set('v', '<leader>f', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
+
+    -- vim.keymap.set('n', '<leader>f', function()
+    --   vim.lsp.buf.format { async = true }
+    -- end, opts)
+    -- vim.keymap.set('v', '<leader>f', function()
+    --   vim.lsp.buf.format { async = true }
+    -- end, opts)
+
   end,
 })
 

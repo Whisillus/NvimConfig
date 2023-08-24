@@ -38,9 +38,6 @@ return require('packer').startup(function(use)
   -- comment
   use 'numToStr/Comment.nvim'
 
-  -- null-ls lint and format setup
-  use 'jose-elias-alvarez/null-ls.nvim'
-
   -- treesitter syntax plugin
   use 'nvim-treesitter/nvim-treesitter'
   use {
@@ -88,6 +85,11 @@ return require('packer').startup(function(use)
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+  }
+
+  -- linter and formatter
+  use {
+    "sbdchd/neoformat"
   }
 
   -- surround
