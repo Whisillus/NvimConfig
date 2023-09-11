@@ -14,9 +14,23 @@ local lspsaga_setup = {
         'python',
     },
 
-    config = function()
-        require('lspsaga').setup({})
+    opts = {    
+        border_style = "round",
+        finder = {
+            keys = {
+                shuttle = "w[",
+            },
+        },
+        lightbulb = {
+            enable = false,
+            sign = false,
+            virtual_text = false,
+        },
+    },
+
+    config = function(_, opts)
+        require('lspsaga').setup(opts)
     end,
 }
 
-return lspsaga_setup
+return lspsaga_setup 

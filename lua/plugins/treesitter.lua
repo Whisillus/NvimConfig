@@ -21,6 +21,8 @@ local treesitter_setup = {
         "cuda",
         "json",
         "lua",
+        "markdown",
+        "markdown_inline",
         "python",
         "query",
         "vim",

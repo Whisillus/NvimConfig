@@ -42,7 +42,13 @@ local telescope_setup = {
 local telescope_config = {
 
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = { 
+        'nvim-lua/plenary.nvim',
+        { 
+            'nvim-telescope/telescope-fzf-native.nvim', 
+            build = 'make',
+        },
+    },
 
     keys = {
         { "<leader>ff", desc = "lsp_document_symbols" },
@@ -51,7 +57,7 @@ local telescope_config = {
     },
 
     opts = telescope_setup,
-    confit = function(_, opts) 
+    config = function(_, opts) 
         require('telescope').setup(opts)
         require('telescope').load_extension('fzf')
     end,
