@@ -5,12 +5,14 @@ local clangd = {
     dependencies = {
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
     },
 
     ft = { "c", "cpp", "cuda" },
     config = function(_, opts) 
+        local cmp = require('cmp_nvim_lsp').default_capabilities()
         require('lspconfig').clangd.setup({
-            -- capabilities = capabilities,
+            capabilities = cmp,
             cmd = {
                 "clangd",
                 -- "--all-scopes-completion",
