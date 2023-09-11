@@ -1,26 +1,12 @@
 
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>fs', builtin.lsp_workspace_symbols, {})
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fl', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
--- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
 local telescope_setup = {
   defaults = {
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
     file_ignore_patterns = {
       "node_modules",
       "build"
     },
     mappings = {
       i = {
-        -- map actions.which_key to <C-h> (default: <C-/>)
-        -- actions.which_key shows the mappings for your picker,
-        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-
         -- move
         ["<C-j>"] = "move_selection_next",
         ["<C-k>"] = "move_selection_previous",
@@ -41,13 +27,6 @@ local telescope_setup = {
   },
 
   pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
   },
   extensions = {
     fzf = {
@@ -60,6 +39,24 @@ local telescope_setup = {
   }
 }
 
-require('telescope').setup(telescope_setup)
-require('telescope').load_extension('fzf')
+local telescope_config = {
 
+    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+
+    keys = {
+        { "<leader>ff", desc = "lsp_document_symbols" },
+        { "<C-p>", desc = "find files" },
+        { "<leader>fl", desc = "live grep" },
+    },
+
+    opts = telescope_setup,
+    confit = function(_, opts) 
+        require('telescope').setup(opts)
+        require('telescope').load_extension('fzf')
+    end,
+
+
+}
+
+return telescope_config

@@ -1,7 +1,7 @@
 
 -- utf8
 vim.g.encoding = "UTF-8"
-vim.o.fileencoding = "utf-8"
+vim.o.fileencoding = "UTF-8"
 
 -- jkhl rolling offse-t
 vim.o.scrolloff = 4
