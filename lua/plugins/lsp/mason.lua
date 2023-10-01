@@ -1,16 +1,32 @@
 
+local lsp = {
+    ensure_installed = { "clangd", "pyright", "cmake", "texlab"},
+}
+
 local mason = {
 
-    "williamboman/mason.nvim",
+    {
+        'williamboman/mason.nvim',
 
-    lazy = false,
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
+        cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+        build = ":MasonUpdate",
+
+        config = function()
+            require('mason').setup()
+        end,
     },
-    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
-    build = ":MasonUpdate",
 
-    config = true,
+    {
+        "williamboman/mason-lspconfig.nvim",
+
+        dependencies = {
+            "williamboman/mason.nvim",
+        },
+        opts = lsp,
+        config = function(_, opts) 
+            require('mason-lspconfig').setup(opts)
+        end,
+    },
 }
 
 return mason
