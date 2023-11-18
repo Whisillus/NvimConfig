@@ -1,4 +1,10 @@
 
+bufferline_setup = {
+  options = {
+        mode = "buffers",
+    },
+}
+
 bufferline = {
 
     "akinsho/bufferline.nvim",
@@ -6,7 +12,10 @@ bufferline = {
         'nvim-tree/nvim-web-devicons',
     },
     lazy = false,
-    config = true,
+    opts = bufferline_setup,
+    config = function(_, opts)
+        require('bufferline').setup(opts)
+    end,
 }
 
 return bufferline
