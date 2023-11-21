@@ -212,6 +212,22 @@ vim.keymap.set('', 't',
     {remap=true}
     )
 
+vim.keymap.set('', 'gl', 
+    function()
+        hop.hint_lines({ 
+            current_line_only = false
+        })
+    end, 
+    {remap=true}
+    )
+vim.keymap.set('', 'gw', 
+    function()
+        hop.hint_words({ 
+            current_line_only = false
+        })
+    end, 
+    {remap=true}
+    )
 
 -- ----------------------------------------------------
 -- tmp
