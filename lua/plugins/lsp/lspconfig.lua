@@ -37,15 +37,19 @@ local lspconfig = {
         })
 
         -- Setup texlab
-        require('lspconfig').texlab.setup({
-        })
+        -- require('lspconfig').texlab.setup({
+        -- })
 
         -- Setup cmake-lsp
         require('lspconfig').cmake.setup({
         })
 
-        -- Setup texlab
+        -- Setup pyright
         require('lspconfig').pyright.setup({
+        })
+
+        -- Setup yaml
+        require('lspconfig').yamlls.setup({
         })
 
 
