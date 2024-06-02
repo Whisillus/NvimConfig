@@ -142,18 +142,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 -- ----------------------------------------------------
--- Lspsaga
+-- glance
 -- ----------------------------------------------------
-vim.keymap.set("n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-vim.keymap.set("n", "g]", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-vim.keymap.set("n", "gd", "<cmd>Lspsaga finder def<CR>")
-vim.keymap.set("n", "gr", "<cmd>Lspsaga finder ref<CR>")
-vim.keymap.set("n", 'K', '<cmd>Lspsaga hover_doc<CR>')
-
-vim.keymap.set('n', '<F8>', '<cmd>Lspsaga outline<CR>')
-vim.keymap.set('v', '<F8>', '<cmd>Lspsaga outline<CR>')
-vim.keymap.set('i', '<F8>', '<cmd>Lspsaga outline<CR>')
-
+vim.keymap.set('n', 'gd', '<CMD>Glance definitions<CR>')
+vim.keymap.set('n', 'gr', '<CMD>Glance references<CR>')
+vim.keymap.set('n', '<leader>D', '<CMD>Glance type_definitions<CR>')
+vim.keymap.set('n', 'gi', '<CMD>Glance implementations<CR>')
 
 -- ----------------------------------------------------
 -- NeoFormat
