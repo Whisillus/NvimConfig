@@ -1,6 +1,12 @@
 bufferline_setup = {
     options = {
         mode = "buffers",
+
+        sort_by = function(buffer_a, buffer_b)
+            -- vim.notify(vim.inspect(buffer_a))
+            -- add custom logic
+            return buffer_a.name < buffer_b.name
+        end,
     },
 }
 

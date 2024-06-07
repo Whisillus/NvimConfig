@@ -146,7 +146,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 map("n", "<leader>bh", ":BufferLineMovePrev<CR>", opt)
 map("n", "<leader>bl", ":BufferLineMoveNext<CR>", opt)
 map("n", "<leader>bp", ":BufferLineTogglePin<CR>", opt)
-map("n", "<leader>bs", ":BufferLineSortByDirectory<CR>", opt)
+-- map("n", "<leader>bs", ":BufferLineSortByDirectory<CR>", opt)
 map("n", "<leader>bt", ":BufferLinePick<CR>", opt)
 
 -- ----------------------------------------------------
