@@ -1,4 +1,3 @@
-
 -- ----------------------------------------------------
 -- General Config
 -- ----------------------------------------------------
@@ -11,8 +10,8 @@
 --   command_mode = "c",
 
 local opt = {
-  noremap = true,
-  silent = true,
+    noremap = true,
+    silent = true,
 }
 
 -- local var
@@ -30,14 +29,16 @@ map("c", "<C-k>", "<C-p>", { noremap = false })
 
 -- quick save
 map("n", "<leader>qq", ":bdelete!<CR>", opt)
-map("n", "<leader>qa", ":qa!<CR>", opt)
-map("n", "<leader>ww", ":wa<CR>", opt)
+-- map("n", "<leader>qa", ":qa!<CR>", opt)
+-- map("n", "<leader>ww", ":wa<CR>", opt)
 
 -- buffer jump
--- more see bufferine
+-- more see bufferine below
 map("n", "<F1>", ":wa<CR>:b#<CR>", opt)
-map("n", "<F2>", ":wa<CR>:bp<CR>", opt)
-map("n", "<F3>", ":wa<CR>:bn<CR>", opt)
+map("n", "<F2>", ":wa<CR>:BufferLineCyclePrev<CR>", opt)
+-- map("n", "<F2>", ":wa<CR>:bp<CR>", opt)
+map("n", "<F3>", ":wa<CR>:BufferLineCycleNext<CR>", opt)
+-- map("n", "<F3>", ":wa<CR>:bn<CR>", opt)
 map("n", "<F4>", ":wa<CR>", opt)
 
 map("i", "<F1>", "<ESC><F1>", {})
@@ -96,58 +97,65 @@ map("n", "<leader>s=", "<C-w>=", opt)
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev)
-vim.keymap.set('n', 'g]', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+    callback = function(ev)
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = ev.buf }
-    -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    -- vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        -- Buffer local mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local opts = { buffer = ev.buf }
+        -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        -- vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
+        -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 
-    -- vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-    -- vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    -- vim.keymap.set('n', '<leader>wl', function()
-      -- print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    -- end, opts)
+        -- vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+        -- vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+        -- vim.keymap.set('n', '<leader>wl', function()
+        -- print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        -- end, opts)
 
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
 
-    -- vim.keymap.set('n', '<leader>f', function()
-    --   vim.lsp.buf.format { async = true }
-    -- end, opts)
-    -- vim.keymap.set('v', '<leader>f', function()
-    --   vim.lsp.buf.format { async = true }
-    -- end, opts)
-
-  end,
+        -- vim.keymap.set('n', '<leader>f', function()
+        --   vim.lsp.buf.format { async = true }
+        -- end, opts)
+        -- vim.keymap.set('v', '<leader>f', function()
+        --   vim.lsp.buf.format { async = true }
+        -- end, opts)
+    end,
 })
 
+-- ----------------------------------------------------
+-- bufferline
+-- ----------------------------------------------------
+map("n", "<leader>bh", ":BufferLineMovePrev<CR>", opt)
+map("n", "<leader>bl", ":BufferLineMoveNext<CR>", opt)
+map("n", "<leader>bp", ":BufferLineTogglePin<CR>", opt)
+map("n", "<leader>bs", ":BufferLineSortByDirectory<CR>", opt)
+map("n", "<leader>bt", ":BufferLinePick<CR>", opt)
 
 -- ----------------------------------------------------
 -- glance
 -- ----------------------------------------------------
-vim.keymap.set('n', 'gd', '<CMD>Glance definitions<CR>')
-vim.keymap.set('n', 'gr', '<CMD>Glance references<CR>')
-vim.keymap.set('n', '<leader>D', '<CMD>Glance type_definitions<CR>')
-vim.keymap.set('n', 'gi', '<CMD>Glance implementations<CR>')
+vim.keymap.set("n", "gd", "<CMD>Glance definitions<CR>")
+vim.keymap.set("n", "gr", "<CMD>Glance references<CR>")
+vim.keymap.set("n", "<leader>D", "<CMD>Glance type_definitions<CR>")
+vim.keymap.set("n", "gi", "<CMD>Glance implementations<CR>")
 
 -- ----------------------------------------------------
 -- NeoFormat
@@ -155,76 +163,64 @@ vim.keymap.set('n', 'gi', '<CMD>Glance implementations<CR>')
 map("v", "<leader>f", "<cmd>Neoformat<CR>", { silent = true })
 map("n", "<leader>f", "<cmd>Neoformat<CR>", { silent = true })
 
-
 -- ----------------------------------------------------
 -- telescope
 -- ----------------------------------------------------
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>fs', builtin.lsp_workspace_symbols, {})
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fl', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.lsp_document_symbols, {})
+vim.keymap.set("n", "<leader>fs", builtin.lsp_workspace_symbols, {})
+vim.keymap.set("n", "<C-p>", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fl", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 
 -- ----------------------------------------------------
 -- nvimtree
 -- ----------------------------------------------------
-map("n", "<F9>", ":Neotree<CR>", {noremap = true, silent = true})
+map("n", "<F9>", ":Neotree<CR>", { noremap = true, silent = true })
 
 -- ----------------------------------------------------
 -- hop
 -- ----------------------------------------------------
-local hop = require('hop')
-local directions = require('hop.hint').HintDirection
+local hop = require("hop")
+local directions = require("hop.hint").HintDirection
 
--- vim.keymap.set('', 'f', 
+-- vim.keymap.set('', 'f',
 --     function()
---         hop.hint_char1({ 
+--         hop.hint_char1({
 --             direction = directions.AFTER_CURSOR,
---             current_line_only = true 
+--             current_line_only = true
 --         })
---     end, 
+--     end,
 --     {remap=true}
 --     )
 --
--- vim.keymap.set('', 'F', 
+-- vim.keymap.set('', 'F',
 --     function()
---         hop.hint_char1({ 
+--         hop.hint_char1({
 --             direction = directions.BEFORE_CURSOR,
---             current_line_only = true 
+--             current_line_only = true
 --         })
---     end, 
+--     end,
 --     {remap=true}
 --     )
 
-vim.keymap.set('', 't', 
-    function()
-        hop.hint_char1({ 
-            current_line_only = false
-        })
-    end, 
-    {remap=true}
-    )
+vim.keymap.set("", "t", function()
+    hop.hint_char1({
+        current_line_only = false,
+    })
+end, { remap = true })
 
-vim.keymap.set('', 'gl', 
-    function()
-        hop.hint_lines({ 
-            current_line_only = false
-        })
-    end, 
-    {remap=true}
-    )
-vim.keymap.set('', 'gw', 
-    function()
-        hop.hint_words({ 
-            current_line_only = false
-        })
-    end, 
-    {remap=true}
-    )
+vim.keymap.set("", "gl", function()
+    hop.hint_lines({
+        current_line_only = false,
+    })
+end, { remap = true })
+vim.keymap.set("", "gw", function()
+    hop.hint_words({
+        current_line_only = false,
+    })
+end, { remap = true })
 
 -- ----------------------------------------------------
 -- tmp
 -- ----------------------------------------------------
-
-

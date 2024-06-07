@@ -1,6 +1,6 @@
 
 local lsp = {
-    ensure_installed = { "clangd", "pyright", "cmake", "yamlls" },
+    ensure_installed = { "clangd", "pyright", "cmake", "yamlls", "lua_ls" },
 }
 
 local mason = {
