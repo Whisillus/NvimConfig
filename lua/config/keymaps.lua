@@ -176,7 +176,7 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 -- ----------------------------------------------------
 -- nvimtree
 -- ----------------------------------------------------
-map("n", "<F9>", ":Neotree<CR>", { noremap = true, silent = true })
+map("n", "<F9>", ":Neotree toggle<CR>", { noremap = true, silent = true })
 
 -- ----------------------------------------------------
 -- hop

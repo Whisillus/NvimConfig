@@ -1,16 +1,7 @@
-
--- local nvimtree_setup = {
---     "nvim-tree/nvim-tree.lua",
---     dependencies = {
---         'nvim-tree/nvim-web-devicons',
---     },
---     lazy = false,
---     config = true,
--- }
-
-local nvimtree_parameter = {
+local neotree_parameter = {
     close_if_last_window = false,
     filesystem = {
+        toggle = true,
         filtered_items = {
             hide_dotfiles = true,
             hide_gitignored = true,
@@ -31,20 +22,19 @@ local nvimtree_parameter = {
         },
     },
 }
-local nvimtree_setup = {
+local neotree_setup = {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
-    opts = nvimtree_parameter,
-    config = function(_, opts) 
-        require('neo-tree').setup(opts)
+    opts = neotree_parameter,
+    config = function(_, opts)
+        require("neo-tree").setup(opts)
     end,
 }
 
-return nvimtree_setup
-
+return neotree_setup
