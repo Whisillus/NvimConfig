@@ -179,6 +179,11 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 map("n", "<F9>", ":Neotree toggle<CR>", { noremap = true, silent = true })
 
 -- ----------------------------------------------------
+-- todo-comments
+-- ----------------------------------------------------
+map("n", "<leader>td", ":TodoTelescope<CR>", { noremap = true, silent = true })
+
+-- ----------------------------------------------------
 -- hop
 -- ----------------------------------------------------
 local hop = require("hop")
