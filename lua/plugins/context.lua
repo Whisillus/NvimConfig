@@ -2,6 +2,7 @@
 local param = {
 
     enable = true,
+    max_lines = 5,
 }
 
 local context_config = {
